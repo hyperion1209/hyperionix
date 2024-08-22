@@ -28,8 +28,8 @@
         yellow = "0xd8a657";
       };
       primary = {
-        background = "0x282828"
-        foreground = "0xd4be98"
+        background = "0x282828";
+        foreground = "0xd4be98";
       };
     };
     cursor.style.blinking = "Never";
