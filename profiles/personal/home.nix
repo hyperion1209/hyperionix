@@ -4,6 +4,7 @@
   imports = [
     ../../user/shell/sh.nix
     ../../user/app/alacritty.nix
+    ../../user/app/git.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -73,12 +74,6 @@
   #
   home.sessionVariables = {
     EDITOR = "neovim";
-  };
-
-  programs.git = {
-    enable = true;
-    userName = userSettings.name;
-    userEmail = userSettings.email;
   };
 
   # Let Home Manager install and manage itself.
