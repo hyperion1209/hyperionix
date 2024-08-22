@@ -11,7 +11,7 @@ in
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    enableCompletion = true;
+    # enableCompletion = true;
 
     shellAliases = myAliases;
 
@@ -39,8 +39,13 @@ unsetopt BEEP
 autoload -Uz colors && colors
 
 PROMPT="%{$fg[cyan]%}[%~] $program %{$fg[default]%}
-%B%{$fg[blue]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[yellow]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%}"
+%B%{$fg[blue]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[yellow]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$reset_color%}"
 [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
+  };
+
+  programs.fzf = {
+    enable = true; 
+    enableZshIntegration = true;
   };
 }
