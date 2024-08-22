@@ -14,11 +14,13 @@
         system = "x86_64-linux";
         locale = "en_US.UTF-8";
         timezone = "Europe/Warsaw";
+	profile = "personal";
       };
 
       userSettings = {
         username = "marius";
 	name = "Marius Stan";
+	email = "hyperion1209@gmail.com";
       };
 
       lib = nixpkgs.lib;
@@ -27,7 +29,9 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         system = systemSettings.system;
-        modules = [ ./configuration.nix ];
+        modules = [
+	  (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+	];
 	specialArgs = {
 	  inherit systemSettings;
 	  inherit userSettings;
@@ -37,7 +41,9 @@
     homeConfigurations = {
       marius = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [
+	  (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+	];
 	extraSpecialArgs = {
 	  inherit userSettings;
 	};

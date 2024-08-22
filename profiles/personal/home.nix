@@ -1,13 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   imports = [
-    ./sh.nix
+    ../../user/shell/sh.nix
+    ../../user/app/alacritty.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "marius";
-  home.homeDirectory = "/home/marius";
+  home.username = userSettings.username;
+  home.homeDirectory = "/home/${userSettings.username}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -76,8 +77,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Marius Stan";
-    userEmail = "hyperion1209@gmail.com";
+    userName = userSettings.name;
+    userEmail = userSettings.email;
   };
 
   # Let Home Manager install and manage itself.
