@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./sh.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "marius";
@@ -68,12 +71,7 @@
   #  /etc/profiles/per-user/marius/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
-
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
+    EDITOR = "neovim";
   };
 
   programs.git = {

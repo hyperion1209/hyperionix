@@ -9,20 +9,38 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
     let
+      # ---- SYSTEM SETTINGS ---- #
+      systemSettings = {
+        system = "x86_64-linux";
+        locale = "en_US.UTF-8";
+        timezone = "Europe/Warsaw";
+      };
+
+      userSettings = {
+        username = "marius";
+	name = "Marius Stan";
+      };
+
       lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${systemSettings.system};
     in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
-        inherit system;
+        system = systemSettings.system;
         modules = [ ./configuration.nix ];
+	specialArgs = {
+	  inherit systemSettings;
+	  inherit userSettings;
+	};
       };
     };
     homeConfigurations = {
       marius = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
+	extraSpecialArgs = {
+	  inherit userSettings;
+	};
       };
     };
   };
