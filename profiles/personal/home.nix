@@ -74,6 +74,7 @@
   #
   home.sessionVariables = {
     EDITOR = "neovim";
+    TERMINAL = "alacritty";
   };
 
   # Let Home Manager install and manage itself.

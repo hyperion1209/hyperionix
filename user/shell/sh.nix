@@ -11,7 +11,7 @@ in
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    # enableCompletion = true;
+    enableCompletion = true;
 
     shellAliases = myAliases;
 
@@ -78,7 +78,7 @@ zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]
 
 # format our main prompt for hostname current folder, and permissions.
 PROMPT="%{$fg[cyan]%}[%~] $program %{$fg[default]%}
-%B%{$fg[blue]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[yellow]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$reset_color%}"
+%B%{$fg[blue]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[yellow]%}%m%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%}"
 [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
 PROMPT+="\$vcs_info_msg_0_ "
     '';
