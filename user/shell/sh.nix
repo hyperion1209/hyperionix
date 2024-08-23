@@ -4,14 +4,14 @@ let
     ll = "ls -lh";
     la = "ls -lah";
     ".." = "cd ..";
-    grep = 'grep --color=auto';
-    egrep = 'egrep --color=auto';
-    fgrep = 'fgrep --color=auto';
-    ls = 'ls --color=auto';
-    df = 'df -h';     # human-readable sizes
-    free = 'free -m'; # show sizes in MB
-    psmem = 'ps auxf | sort -nr -k 4 | head -5';
-    pscpu = 'ps auxf | sort -nr -k 3 | head -5'
+    grep = "grep --color=auto";
+    egrep = "egrep --color=auto";
+    fgrep = "fgrep --color=auto";
+    ls = "ls --color=auto";
+    df = "df -h";     # human-readable sizes
+    free = "free -m"; # show sizes in MB
+    psmem = "ps auxf | sort -nr -k 4 | head -5";
+    pscpu = "ps auxf | sort -nr -k 3 | head -5";
   };
 in
 {
