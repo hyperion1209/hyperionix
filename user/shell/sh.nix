@@ -4,6 +4,14 @@ let
     ll = "ls -lh";
     la = "ls -lah";
     ".." = "cd ..";
+    grep = 'grep --color=auto';
+    egrep = 'egrep --color=auto';
+    fgrep = 'fgrep --color=auto';
+    ls = 'ls --color=auto';
+    df = 'df -h';     # human-readable sizes
+    free = 'free -m'; # show sizes in MB
+    psmem = 'ps auxf | sort -nr -k 4 | head -5';
+    pscpu = 'ps auxf | sort -nr -k 3 | head -5'
   };
 in
 {
@@ -20,6 +28,11 @@ in
       ignoreAllDups = true;
       path = "$HOME/.zsh_history";
       ignorePatterns = ["rm *" "pkill *" "cp *"];
+    };
+
+    sessionVariables = {
+      EDITOR="nvim";
+      TERMINAL="alacritty";
     };
 
     initExtraFirst = ''
@@ -84,6 +97,45 @@ PROMPT+="\$vcs_info_msg_0_ "
     '';
 
     initExtra = ''
+# bindkey -e will be emacs mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect '^h' vi-backward-char
+bindkey -M menuselect '^k' vi-up-line-or-history
+bindkey -M menuselect '^l' vi-forward-char
+bindkey -M menuselect '^j' vi-down-line-or-history
+bindkey -M menuselect '^[[Z' vi-up-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Key-bindings
+bindkey '^[[P' delete-char
+bindkey "^p" up-line-or-beginning-search # Up
+bindkey "^n" down-line-or-beginning-search # Down
+bindkey "^k" up-line-or-beginning-search # Up
+bindkey "^j" down-line-or-beginning-search # Down
+bindkey -r "^u"
+bindkey -r "^d"
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
     '';
   };
 
