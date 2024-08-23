@@ -20,11 +20,12 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
+    defaultKeymap = "vicmd";
 
     shellAliases = myAliases;
 
     history = {
-      size = 10000;
+      size = 100000;
       ignoreAllDups = true;
       path = "$HOME/.zsh_history";
       ignorePatterns = ["rm *" "pkill *" "cp *"];
@@ -136,11 +137,19 @@ bindkey -r "^d"
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
+
+# Exports
+export EDITOR="nvim";
     '';
   };
 
   programs.fzf = {
     enable = true; 
     enableZshIntegration = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
   };
 }
