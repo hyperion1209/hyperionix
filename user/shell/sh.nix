@@ -147,9 +147,4 @@ export EDITOR="nvim";
     enable = true; 
     enableZshIntegration = true;
   };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
 }
