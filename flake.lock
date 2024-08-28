@@ -200,6 +200,24 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724870797,
+        "narHash": "sha256-v+STvSmPubA03gWsAjFU/2Yo6nKhBdoTpgGINLi0rQs=",
+        "ref": "main",
+        "rev": "b0a886dc14abd4528e3c6a4568e4923e16f6c5a1",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/hyperion1209/hyperionix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/hyperion1209/hyperionix-secrets.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1724098845,
@@ -263,6 +281,7 @@
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "sops-nix": "sops-nix"

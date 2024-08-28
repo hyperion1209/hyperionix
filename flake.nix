@@ -42,7 +42,7 @@
     # Private secrets repo.  See ./docs/secretsmgmt.md
     # Authenticate via ssh and use shallow clone
     nix-secrets = {
-      url = "git+ssh://git@github.com:hyperion1209/hyperionix-secrets.git?ref=main&shallow=1";
+      url = "git+ssh://git@github.com/hyperion1209/hyperionix-secrets.git?ref=main&shallow=1";
       flake = false;
     };
   };

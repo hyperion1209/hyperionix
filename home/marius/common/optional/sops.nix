@@ -17,22 +17,13 @@ in
     defaultSopsFile = "${secretsFile}";
     validateSopsFiles = false;
 
-    # secrets = {
-      # "ssh_keys/maya" = {
-      #   path = "${homeDirectory}/.ssh/id_maya";
-      # };
-      # "ssh_keys/mara" = {
-      #   path = "${homeDirectory}/.ssh/id_mara";
-      # };
-      # "ssh_keys/manu" = {
-      #   path = "${homeDirectory}/.ssh/id_manu";
-      # };
-      # "ssh_keys/mila" = {
-      #   path = "${homeDirectory}/.ssh/id_mila";
-      # };
-      # "ssh_keys/meek" = {
-      #   path = "${homeDirectory}/.ssh/id_meek";
-      # };
-    # };
+    secrets = {
+      "private-keys/marius_nixos" = {
+        path = "${homeDirectory}/.ssh/id_nixos";
+      };
+      "public-keys/marius_nixos" = {
+        path = "${homeDirectory}/.ssh/id_nixos.pub";
+      };
+    };
   };
 }

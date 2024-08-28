@@ -11,14 +11,14 @@ let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
   sopsHashedPasswordFile =
     lib.optionalString (lib.hasAttr "sops-nix" inputs)
-      config.sops.secrets."${configVars.username}/password".path;
+      config.sops.secrets."${configVars.username}-password".path;
   pubKeys = lib.filesystem.listFilesRecursive (./keys);
 
   # these are values we don't want to set if the environment is minimal. E.g. ISO or nixos-installer
   # isMinimal is true in the nixos-installer/flake.nix
   fullUserConfig = lib.optionalAttrs (!configVars.isMinimal) {
     users.users.${configVars.username} = {
-      # hashedPasswordFile = sopsHashedPasswordFile;
+      hashedPasswordFile = sopsHashedPasswordFile;
       packages = [ pkgs.home-manager ];
     };
 
@@ -26,6 +26,7 @@ let
     home-manager.users.${configVars.username} = import (
       configLib.relativeToRoot "home/${configVars.username}/${config.networking.hostName}.nix"
     );
+    home-manager.backupFileExtension = "backup";
   };
 in
 {
@@ -37,7 +38,7 @@ in
         users.users.${configVars.username} = {
           home = "/home/${configVars.username}";
           isNormalUser = true;
-          password = "nixos"; # Overridden if sops is working
+          # password = "nixos"; # Overridden if sops is working
 
           extraGroups =
             [ "wheel" ]
