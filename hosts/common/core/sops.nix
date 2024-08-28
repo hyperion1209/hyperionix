@@ -48,7 +48,7 @@ in
       };
 
       # extract username/password to /run/secrets-for-users/ so it can be used to create the user
-      "${configVars.username}-password".neededForUsers = true;
+      "${configVars.username}_${config.networking.hostName}".neededForUsers = true;
 
       # extract to default pam-u2f authfile location for passwordless sudo. see ../optional/yubikey
       # "yubico/u2f_keys" = {

@@ -203,10 +203,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1724870797,
-        "narHash": "sha256-v+STvSmPubA03gWsAjFU/2Yo6nKhBdoTpgGINLi0rQs=",
+        "lastModified": 1724874171,
+        "narHash": "sha256-XJ41KU79xtp9ZxsxfCmv27oK5i1/m3SM7CLP3HZchXU=",
         "ref": "main",
-        "rev": "b0a886dc14abd4528e3c6a4568e4923e16f6c5a1",
+        "rev": "1019aa0028aab0727212e2e0b70753627b056a2c",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/hyperion1209/hyperionix-secrets.git"
