@@ -9,10 +9,10 @@
 }:
 let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-  # sopsHashedPasswordFile =
-  #   lib.optionalString (lib.hasAttr "sops-nix" inputs)
-  #     config.sops.secrets."${configVars.username}/password".path;
-  # pubKeys = lib.filesystem.listFilesRecursive (./keys);
+  sopsHashedPasswordFile =
+    lib.optionalString (lib.hasAttr "sops-nix" inputs)
+      config.sops.secrets."${configVars.username}/password".path;
+  pubKeys = lib.filesystem.listFilesRecursive (./keys);
 
   # these are values we don't want to set if the environment is minimal. E.g. ISO or nixos-installer
   # isMinimal is true in the nixos-installer/flake.nix
@@ -50,18 +50,18 @@ in
             ];
 
           # These get placed into /etc/ssh/authorized_keys.d/<name> on nixos
-          # openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
+          openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
 
           shell = pkgs.zsh; # default shell
         };
 
         # Proper root use required for borg and some other specific operations
-        # users.users.root = {
-        #   hashedPasswordFile = config.users.users.${configVars.username}.hashedPasswordFile;
-        #   password = lib.mkForce config.users.users.${configVars.username}.password;
-        #   # root's ssh keys are mainly used for remote deployment.
-        #   openssh.authorizedKeys.keys = config.users.users.${configVars.username}.openssh.authorizedKeys.keys;
-        # };
+        users.users.root = {
+          hashedPasswordFile = config.users.users.${configVars.username}.hashedPasswordFile;
+          password = lib.mkForce config.users.users.${configVars.username}.password;
+          # root's ssh keys are mainly used for remote deployment.
+          openssh.authorizedKeys.keys = config.users.users.${configVars.username}.openssh.authorizedKeys.keys;
+        };
 
         # No matter what environment we are in we want these tools for root, and the user(s)
         programs.zsh.enable = true;
