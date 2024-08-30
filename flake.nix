@@ -141,7 +141,7 @@
       # Building configurations available through `just rebuild` or `nixos-rebuild --flake .#hostname`
 
       nixosConfigurations = {
-        # Learning VM
+        # Learning KVM VM
         nixos = lib.nixosSystem {
           inherit specialArgs;
           modules = [
