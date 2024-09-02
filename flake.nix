@@ -13,7 +13,7 @@
     };
     #################### Utilities ####################
     # Access flake-based devShells with nix-shell seamlessly
-    # flake-compat.url = "github:edolstra/flake-compat";
+    flake-compat.url = "github:edolstra/flake-compat";
 
     # Declarative partitioning and formatting
     # disko = {
@@ -83,13 +83,13 @@
       # overlays = import ./overlays { inherit inputs outputs; };
 
       # Custom packages to be shared or upstreamed.
-      # packages = forAllSystems (
-      #   system:
-      #   let
-      #     pkgs = nixpkgs.legacyPackages.${system};
-      #   in
-      #   import ./pkgs { inherit pkgs; }
-      # );
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
 
       # checks = forAllSystems (
       #   system:
