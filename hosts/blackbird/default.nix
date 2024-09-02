@@ -23,9 +23,9 @@
       "hosts/common/core"
 
       #################### Host-specific Optional Configs ####################
-      "hosts/common/optional/megasync.nix"
-      "hosts/common/optional/obsidian.nix"
-      "hosts/common/optional/vlc.nix"
+      # "hosts/common/optional/megasync.nix"
+      # "hosts/common/optional/obsidian.nix"
+      # "hosts/common/optional/vlc.nix"
 
       "hosts/common/optional/services/printing.nix"
       "hosts/common/optional/services/pipewire.nix"
@@ -44,15 +44,15 @@
       "hosts/common/users/marius"
     ]);
 
-  # services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   # TODO enable and move to greetd area? may need authentication dir or something?
   # services.pam.services.greetd.enableGnomeKeyring = true;
 
   # Enable some basic X server options
   services.xserver.enable = true;
     services.xserver.displayManager = {
-    # autoLogin.enable = true;
-    # autoLogin.user = "marius";
+    autoLogin.enable = true;
+    autoLogin.user = "marius";
   };
 
   networking = {

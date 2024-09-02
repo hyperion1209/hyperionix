@@ -1,7 +1,7 @@
 # home level sops. see hosts/common/optional/sops.nix for hosts level
 # TODO should I split secrets.yaml into a home level and a hosts level or move to a single sops.nix entirely?
 
-{ inputs, config, ... }:
+{ inputs, config, configVars, ... }:
 let
   secretsDirectory = builtins.toString inputs.nix-secrets;
   secretsFile = "${secretsDirectory}/secrets.yaml";
@@ -18,11 +18,11 @@ in
     validateSopsFiles = false;
 
     secrets = {
-      "private-keys/marius_nixos" = {
-        path = "${homeDirectory}/.ssh/id_nixos";
+      "private-keys/${configVars.username}_blackbird" = {
+        path = "${homeDirectory}/.ssh/id_blackbird";
       };
-      "public-keys/marius_nixos" = {
-        path = "${homeDirectory}/.ssh/id_nixos.pub";
+      "public-keys/${configVars.username}_blackbird" = {
+        path = "${homeDirectory}/.ssh/id_blackbird.pub";
       };
     };
   };

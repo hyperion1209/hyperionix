@@ -203,10 +203,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1724874171,
-        "narHash": "sha256-XJ41KU79xtp9ZxsxfCmv27oK5i1/m3SM7CLP3HZchXU=",
+        "lastModified": 1725288103,
+        "narHash": "sha256-hUIuuyYjY3unTV0dGXTaGPrBSJzZfDUDVOnIxOUkkTw=",
         "ref": "main",
-        "rev": "1019aa0028aab0727212e2e0b70753627b056a2c",
+        "rev": "2d835c41aab00064cd463be5d69b1ddfc1468504",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/hyperion1209/hyperionix-secrets.git"
@@ -295,11 +295,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1723501126,
-        "narHash": "sha256-N9IcHgj/p1+2Pvk8P4Zc1bfrMwld5PcosVA0nL6IGdE=",
+        "lastModified": 1725201042,
+        "narHash": "sha256-lj5pxOwidP0W//E7IvyhbhXrnEUW99I07+QpERnzTS4=",
         "owner": "mic92",
         "repo": "sops-nix",
-        "rev": "be0eec2d27563590194a9206f551a6f73d52fa34",
+        "rev": "5db5921e40ae382d6716dce591ea23b0a39d96f7",
         "type": "github"
       },
       "original": {

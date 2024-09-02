@@ -24,7 +24,7 @@
     # Secrets management. See ./docs/secretsmgmt.md
     sops-nix = {
       url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+          inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # vim4LMFQR!
@@ -47,13 +47,13 @@
     };
   };
 
-  outputs = 
+  outputs =
     {
       self,
       nixpkgs,
       # disko,
       home-manager,
-      ... 
+      ...
     }@inputs:
     let
       inherit (self) outputs;

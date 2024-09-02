@@ -11,12 +11,8 @@ let
   secretsDirectory = builtins.toString inputs.nix-secrets;
   secretsFile = "${secretsDirectory}/secrets.yaml";
 
-  # FIXME: Switch to a configLib function
-  # this is some stuff for distinguishing linux from darwin. Likely just remove it.
-  homeDirectory =
-    if pkgs.stdenv.isLinux then "/home/${configVars.username}" else "/Users/${configVars.username}";
+  homeDirectory = "/home/${configVars.username}";
 in
-#homeDirectory = "/home/${configVars.username}";
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 

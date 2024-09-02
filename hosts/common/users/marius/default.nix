@@ -18,7 +18,7 @@ let
   # isMinimal is true in the nixos-installer/flake.nix
   fullUserConfig = lib.optionalAttrs (!configVars.isMinimal) {
     users.users.${configVars.username} = {
-      # hashedPasswordFile = sopsHashedPasswordFile;
+      hashedPasswordFile = sopsHashedPasswordFile;
       packages = [ pkgs.home-manager ];
     };
 
@@ -34,11 +34,11 @@ in
     lib.recursiveUpdate fullUserConfig
       #this is the second argument to recursiveUpdate
       {
-        users.mutableUsers = false; # Only allow declarative credentials; Required for sops
+        users.mutableUsers = true; # Only allow declarative credentials; Required for sops
         users.users.${configVars.username} = {
           home = "/home/${configVars.username}";
           isNormalUser = true;
-          password = "nixos"; # Overridden if sops is working
+          # password = "nixos"; # Overridden if sops is working
 
           extraGroups =
             [ "wheel" ]
@@ -58,7 +58,7 @@ in
 
         # Proper root use required for borg and some other specific operations
         users.users.root = {
-          # hashedPasswordFile = config.users.users.${configVars.username}.hashedPasswordFile;
+          hashedPasswordFile = config.users.users.${configVars.username}.hashedPasswordFile;
           password = lib.mkForce config.users.users.${configVars.username}.password;
           # root's ssh keys are mainly used for remote deployment.
           openssh.authorizedKeys.keys = config.users.users.${configVars.username}.openssh.authorizedKeys.keys;
