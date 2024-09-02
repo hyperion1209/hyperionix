@@ -26,6 +26,7 @@
       "hosts/common/optional/megasync.nix"
       "hosts/common/optional/obsidian.nix"
       "hosts/common/optional/vlc.nix"
+      "hosts/common/optional/whatsapp.nix"
 
       "hosts/common/optional/services/printing.nix"
       "hosts/common/optional/services/pipewire.nix"
