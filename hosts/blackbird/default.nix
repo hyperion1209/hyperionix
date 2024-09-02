@@ -6,9 +6,7 @@
       ./hardware-configuration.nix
 
       #################### Hardware Modules ####################
-      inputs.hardware.nixosModules.common-cpu-amd
-      inputs.hardware.nixosModules.common-gpu-amd
-      inputs.hardware.nixosModules.common-pc-ssd
+      inputs.hardware.nixosModules.common-cpu-intel
 
       #################### Disk Layout ####################
     #   inputs.disko.nixosModules.disko
@@ -45,47 +43,33 @@
       #################### Users to Create ####################
       "hosts/common/users/marius"
     ]);
-  # set custom autologin options. see greetd.nix for details
-  # TODO is there a better spot for this?
-  # autoLogin.enable = true;
-  # autoLogin.username = "marius";
 
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
   # TODO enable and move to greetd area? may need authentication dir or something?
   # services.pam.services.greetd.enableGnomeKeyring = true;
 
+  # Enable some basic X server options
+  services.xserver.enable = true;
+    services.xserver.displayManager = {
+    # autoLogin.enable = true;
+    # autoLogin.user = "marius";
+  };
+
   networking = {
-    hostName = "nixos";
+    hostName = "blackbird";
     networkmanager.enable = true;
     enableIPv6 = false;
   };
 
   boot.loader = {
-    grub.enable = true;
-    grub.device = "/dev/vda";
-    grub.useOSProber = true;
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    timeout = 3;
   };
-  # boot.initrd = {
-  #   systemd.enable = true;
-  #   # FIXME: Not sure we need to be explicit with all, but testing virtio due to luks disk errors on qemu
-  #   # This mostly mirrors what is generated on qemu from nixos-generate-config in hardware-configuration.nix
-  #   # NOTE: May be important here for this to be kernelModules, not just availableKernelModules
-  #   kernelModules = [
-  #     "xhci_pci"
-  #     "ohci_pci"
-  #     "ehci_pci"
-  #     "virtio_pci"
-  #     #"virtio_scsci"
-  #     "ahci"
-  #     "usbhid"
-  #     "sr_mod"
-  #     "virtio_blk"
-  #   ];
-  # };
 
-  # This is a fix to enable VSCode to successfully remote SSH on a client to a NixOS host
-  # https://wiki.nixos.org/wiki/Visual_Studio_Code # Remote_SSH
-  # programs.nix-ld.enable = true;
+  boot.initrd = {
+    systemd.enable = true;
+  };
 
   # https://wiki.nixos.org/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
