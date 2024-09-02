@@ -9,7 +9,7 @@
     common/optional/browsers/firefox.nix
     # common/optional/helper-scripts
 
-    # common/optional/desktops
+    common/optional/desktops/gtk.nix
   ];
 
   # services.yubikey-touch-detector.enable = true;
