@@ -31,6 +31,7 @@
       "hosts/common/optional/services/printing.nix"
       "hosts/common/optional/services/pipewire.nix"
       "hosts/common/optional/services/xserver.nix"
+      "hosts/common/optional/services/tlp.nix"
       "hosts/common/optional/xfce.nix" # window manager until I get hyprland configured
       #    "hosts/common/optional/initrd-ssh.nix"
       # "hosts/common/optional/yubikey"
