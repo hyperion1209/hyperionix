@@ -23,13 +23,14 @@
       "hosts/common/core"
 
       #################### Host-specific Optional Configs ####################
-      # "hosts/common/optional/megasync.nix"
-      # "hosts/common/optional/obsidian.nix"
-      # "hosts/common/optional/vlc.nix"
+      "hosts/common/optional/megasync.nix"
+      "hosts/common/optional/obsidian.nix"
+      "hosts/common/optional/vlc.nix"
 
       "hosts/common/optional/services/printing.nix"
       "hosts/common/optional/services/pipewire.nix"
       "hosts/common/optional/services/xserver.nix"
+      "hosts/common/optional/xfce.nix" # window manager until I get hyprland configured
       #    "hosts/common/optional/initrd-ssh.nix"
       # "hosts/common/optional/yubikey"
       # "hosts/common/optional/services/clamav.nix" # depends on optional/msmtp.nix
@@ -51,8 +52,6 @@
   # Enable some basic X server options
   services.xserver.enable = true;
     services.xserver.displayManager = {
-    autoLogin.enable = true;
-    autoLogin.user = "marius";
   };
 
   networking = {
