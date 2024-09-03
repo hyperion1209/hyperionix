@@ -10,6 +10,8 @@
     # common/optional/helper-scripts
 
     common/optional/desktops/gtk.nix
+    common/optional/desktops/gnome-extensions.nix
+    common/optional/megasync.nix
   ];
 
   # services.yubikey-touch-detector.enable = true;
