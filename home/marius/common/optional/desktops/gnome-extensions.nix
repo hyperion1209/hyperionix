@@ -9,7 +9,10 @@
         workspace-matrix.extensionUuid
         move-clock.extensionUuid
         tailscale-status.extensionUuid
-        system-monitor.extensionUuid
+        vitals.extensionUuid
+        dash-to-panel.extensionUuid
+        places-status-indicator.extensionUuid
+
       ];
     };
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";

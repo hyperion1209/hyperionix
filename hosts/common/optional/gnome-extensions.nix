@@ -6,6 +6,8 @@
     gnomeExtensions.workspace-matrix
     gnomeExtensions.move-clock
     gnomeExtensions.tailscale-status
+    gnomeExtensions.vitals
+    gnomeExtensions.dash-to-panel
 
   ];
 
