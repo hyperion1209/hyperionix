@@ -24,7 +24,7 @@
       SHELL = "zsh";
       TERM = "alacritty";
       TERMINAL = "alacritty";
-      EDITOR = "nvim";
+      EDITOR = "lvim";
       MANPAGER = "batman"; # see ./cli/bat.nix
     };
   };
@@ -59,6 +59,9 @@
       wget # downloader
       zip
       lunarvim
+      nh
+      nvd
+      nix-output-monitor
       ; # zip compression
   };
 

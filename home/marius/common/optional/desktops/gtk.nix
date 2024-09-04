@@ -15,10 +15,10 @@
       package = pkgs.adw-gtk3;
     };
 
-    iconTheme = {
-      name = "elementary-Xfce-dark";
-      package = pkgs.elementary-xfce-icon-theme;
-    };
+    # iconTheme = {
+    #   name = "elementary-Xfce-dark";
+    #   package = pkgs.elementary-xfce-icon-theme;
+    # };
 
     #TODO add ascendancy cursor pack
     #cursortTheme.name = "";

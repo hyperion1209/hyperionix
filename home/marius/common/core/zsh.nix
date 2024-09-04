@@ -135,7 +135,7 @@ in
       autoload edit-command-line; zle -N edit-command-line
 
       # Exports
-      export EDITOR="nvim";
+      export EDITOR="lvim";
     '';
   };
 }
