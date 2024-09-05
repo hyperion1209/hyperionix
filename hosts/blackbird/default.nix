@@ -26,8 +26,7 @@
       "hosts/common/optional/obsidian.nix"
       "hosts/common/optional/vlc.nix"
       "hosts/common/optional/whatsapp.nix"
-      "hosts/common/optional/gnome-extensions.nix"
-      "hosts/common/optional/xfce.nix" # window manager until I get hyprland configured
+
       "hosts/common/optional/virtmanager.nix"
 
       "hosts/common/optional/services/printing.nix"
@@ -39,10 +38,15 @@
       # "hosts/common/optional/services/clamav.nix" # depends on optional/msmtp.nix
       # "hosts/common/optional/msmtp.nix" # required for emailing clamav alerts
       "hosts/common/optional/services/openssh.nix"
+      "hosts/common/optional/services/greetd.nix"
 
       # Desktop
+      "hosts/common/optional/hyprland.nix"
+      "hosts/common/optional/swww.nix"
+      "hosts/common/optional/rofi.nix"
       # "hosts/common/optional/services/greetd.nix" # display manager
-      # "hosts/common/optional/hyprland.nix" # window manager
+      "hosts/common/optional/gnome-extensions.nix"
+      "hosts/common/optional/xfce.nix" # window manager until I get hyprland configured
 
       #################### Users to Create ####################
       "hosts/common/users/marius"

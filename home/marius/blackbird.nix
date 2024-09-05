@@ -9,8 +9,7 @@
     common/optional/browsers/firefox.nix
     # common/optional/helper-scripts
 
-    common/optional/desktops/gtk.nix
-    common/optional/desktops/gnome-extensions.nix
+    common/optional/desktops
     common/optional/megasync.nix
   ];
 

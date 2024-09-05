@@ -57,12 +57,13 @@
       unzip # zip extraction
       unrar # rar extraction
       wget # downloader
-      zip
+      zip # zip compression
       lunarvim
       nh
       nvd
       nix-output-monitor
-      ; # zip compression
+      kitty
+      ;
   };
 
   nixpkgs = {

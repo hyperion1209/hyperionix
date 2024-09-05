@@ -11,6 +11,15 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "git+ssh://github.com/hyprwm/Hyprland?submodules=1";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     #################### Utilities ####################
     # Access flake-based devShells with nix-shell seamlessly
     flake-compat.url = "github:edolstra/flake-compat";
