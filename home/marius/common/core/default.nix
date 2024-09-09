@@ -58,7 +58,6 @@
       unrar # rar extraction
       wget # downloader
       zip
-      lunarvim
       nh
       nvd
       nix-output-monitor
