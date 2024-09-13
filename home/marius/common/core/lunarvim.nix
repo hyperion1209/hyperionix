@@ -26,7 +26,7 @@
     lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 
     -- Language Servers
-    lvim.lsp.automatic_servers_installation = true
+    lvim.lsp.installer.setup.automatic_installation = true
 
     -- Formatters
     local formatters = require "lvim.lsp.null-ls.formatters"
