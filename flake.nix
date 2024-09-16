@@ -16,10 +16,10 @@
     flake-compat.url = "github:edolstra/flake-compat";
 
     # Declarative partitioning and formatting
-    # disko = {
-    #   url = "github:nix-community/disko";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Secrets management. See ./docs/secretsmgmt.md
     sops-nix = {
@@ -51,7 +51,7 @@
     {
       self,
       nixpkgs,
-      # disko,
+      disko,
       home-manager,
       ...
     }@inputs:
