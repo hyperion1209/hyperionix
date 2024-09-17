@@ -136,6 +136,9 @@ in
 
       # Exports
       export EDITOR="lvim";
+
+      # direnv
+      eval "$(direnv hook zsh)"
     '';
   };
 }
