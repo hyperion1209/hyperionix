@@ -30,6 +30,7 @@
       "hosts/common/optional/gnome-extensions.nix"
       "hosts/common/optional/xfce.nix" # window manager until I get hyprland configured
       "hosts/common/optional/virtmanager.nix"
+      "hosts/common/optional/transmission.nix"
 
       "hosts/common/optional/services/printing.nix"
       "hosts/common/optional/services/pipewire.nix"
