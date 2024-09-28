@@ -139,6 +139,9 @@ in
 
       # direnv
       eval "$(direnv hook zsh)"
+
+      #zoxide
+      eval "$(zoxide init zsh)"
     '';
   };
 }
