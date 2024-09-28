@@ -150,13 +150,13 @@
             ./hosts/nixos
           ];
         };
-        # Home server
-        broadback = lib.nixosSystem {
+        # Home server sandbox
+        vmbroadback = lib.nixosSystem {
           inherit specialArgs;
           modules = [
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
-            ./hosts/broadback
+            ./hosts/vmbroadback
           ];
         };
         # X1 Carbon laptop

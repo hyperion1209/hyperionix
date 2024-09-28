@@ -1,4 +1,4 @@
-{ outputs, lib, config, ... }:
+{ outputs, lib, osConfig, ... }:
 {
   programs.ssh = {
     enable = true;
@@ -15,8 +15,7 @@
         forwardAgent = true;
         identitiesOnly = true;
         identityFile = [
-          # "~/.ssh/id_yubikey" # This is an auto symlink to whatever yubikey is plugged in. See hosts/common/optional/yubikey
-          "~/.ssh/id_ed25519" # fallback to id_manu if yubis aren't present
+          "~/.ssh/id_${osConfig.networking.hostName}"
         ];
       };
     };
