@@ -16,10 +16,10 @@
     flake-compat.url = "github:edolstra/flake-compat";
 
     # Declarative partitioning and formatting
-    # disko = {
-    #   url = "github:nix-community/disko";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Secrets management. See ./docs/secretsmgmt.md
     sops-nix = {
@@ -51,7 +51,7 @@
     {
       self,
       nixpkgs,
-      # disko,
+      disko,
       home-manager,
       ...
     }@inputs:
@@ -150,13 +150,13 @@
             ./hosts/nixos
           ];
         };
-        # Home server
-        broadback = lib.nixosSystem {
+        # Home server sandbox
+        vmbroadback = lib.nixosSystem {
           inherit specialArgs;
           modules = [
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
-            ./hosts/broadback
+            ./hosts/vmbroadback
           ];
         };
         # X1 Carbon laptop
