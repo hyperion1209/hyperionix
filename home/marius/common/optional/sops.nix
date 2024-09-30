@@ -19,10 +19,10 @@ in
 
     secrets = {
       "private-keys/${configVars.username}_${osConfig.networking.hostName}" = {
-        path = "${homeDirectory}/.ssh/id_${osConfig.networking.hostNameblackbird}";
+        path = "${homeDirectory}/.ssh/id_${osConfig.networking.hostName}";
       };
-      "public-keys/${configVars.username}_${osConfig.networking.hostNameblackbird}" = {
-        path = "${homeDirectory}/.ssh/id_${osConfig.networking.hostNameblackbird}.pub";
+      "public-keys/${configVars.username}_${osConfig.networking.hostName}" = {
+        path = "${homeDirectory}/.ssh/id_${osConfig.networking.hostName}.pub";
       };
     };
   };
