@@ -18,4 +18,17 @@
     username = configVars.username;
     homeDirectory = "/home/${configVars.username}";
   };
+
+  programs.ssh = {
+    matchBlocks = {
+      "my_vms" = {
+        host = "192.168.122.*";
+        forwardAgent = true;
+      };
+      "my_hosts" = {
+        host = "192.168.1.*";
+        forwardAgent = true;
+      };
+    };
+  };
 }

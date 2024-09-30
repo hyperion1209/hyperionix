@@ -1,10 +1,10 @@
-{ outputs, lib, osConfig, ... }:
+{ osConfig, ... }:
 {
   programs.ssh = {
     enable = true;
 
-    # req'd for enabling yubikey-agent
     extraConfig = ''
+    # req'd for enabling yubikey-agent
       AddKeysToAgent yes
     '';
 
