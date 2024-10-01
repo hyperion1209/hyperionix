@@ -168,6 +168,15 @@
             ./hosts/blackbird
           ];
         };
+        # Raspberry PI in CV
+        outpostcv = lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/outpostcv
+          ];
+        };
       };
     };
 }
