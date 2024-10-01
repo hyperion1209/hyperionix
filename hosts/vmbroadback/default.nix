@@ -25,6 +25,7 @@
       #################### Host-specific Optional Configs ####################
       "hosts/common/optional/services/printing.nix"
       "hosts/common/optional/services/pipewire.nix"
+      "hosts/common/optional/services/adguardhome.nix"
       #    "hosts/common/optional/initrd-ssh.nix"
       # "hosts/common/optional/yubikey"
       # "hosts/common/optional/services/clamav.nix" # depends on optional/msmtp.nix
