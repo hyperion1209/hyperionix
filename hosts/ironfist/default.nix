@@ -24,7 +24,7 @@
 
       #################### Host-specific Optional Configs ####################
       "hosts/common/optional/services/openssh.nix"
-      # "hosts/common/optional/services/adguardhome.nix"
+      "hosts/common/optional/services/adguardhome.nix"
 
       #################### Users to Create ####################
       "hosts/common/users/marius"
@@ -34,12 +34,12 @@
     hostName = "ironfist";
     networkmanager.enable = true;
     enableIPv6 = false;
-    # interfaces.eno1 = {
-    #   ipv4.addresses = [{
-    #     address = "192.168.1.123";
-    #     prefixLength = 24;
-    #   }];
-    # };
+    interfaces.eno1 = {
+      ipv4.addresses = [{
+        address = "192.168.1.123";
+        prefixLength = 24;
+      }];
+    };
   };
 
   boot.loader = {

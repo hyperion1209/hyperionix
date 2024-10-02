@@ -169,8 +169,8 @@
           ];
         };
         # M920q server
+        ironfist = lib.nixosSystem {
           inherit specialArgs;
-          ironfist = lib.nixosSystem {
           modules = [
             home-manager.nixosModules.home-manager
             { home-manager.extraSpecialArgs = specialArgs; }
