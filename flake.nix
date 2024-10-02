@@ -168,6 +168,15 @@
             ./hosts/blackbird
           ];
         };
+        # M920q server
+          inherit specialArgs;
+          ironfist = lib.nixosSystem {
+          modules = [
+            home-manager.nixosModules.home-manager
+            { home-manager.extraSpecialArgs = specialArgs; }
+            ./hosts/ironfist
+          ];
+        };
       };
     };
 }
