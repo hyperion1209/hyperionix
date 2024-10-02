@@ -24,7 +24,7 @@
 
       #################### Host-specific Optional Configs ####################
       "hosts/common/optional/services/openssh.nix"
-      "hosts/common/optional/services/adguardhome.nix"
+      # "hosts/common/optional/services/adguardhome.nix"
 
       #################### Users to Create ####################
       "hosts/common/users/marius"

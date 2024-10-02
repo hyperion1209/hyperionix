@@ -47,6 +47,7 @@
         # host = newConfig "name" disk" "withSwap" "swapSize"
         # Swap size is in GiB
         vmbroadback = newConfig "vmbroadback" "/dev/vda" false "0";
+        ironfist = newConfig "ironfist" "/dev/sda" false "0";
 
         # ghost = nixpkgs.lib.nixosSystem {
         #   system = "x86_64-linux";
