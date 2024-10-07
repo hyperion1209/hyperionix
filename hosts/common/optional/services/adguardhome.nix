@@ -96,7 +96,8 @@
         "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser"
       ];
       dhcp = {
-        enabled = true;
+        enabled = false;
+        interface_name = "eno1";
         dhcpv4 = {
           gateway_ip = "192.168.1.1";
           subnet_mask = "255.255.255.0";
